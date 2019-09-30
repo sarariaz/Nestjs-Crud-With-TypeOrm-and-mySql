@@ -9,7 +9,9 @@ export class ContactController {
 
     @Get()
     index(): Promise<Contact[]> {
+      console.log("api hit");
       return this.contactService.findAll();
+
     } 
 
     @Post('create')
