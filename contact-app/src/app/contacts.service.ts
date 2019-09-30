@@ -22,7 +22,7 @@ export class ContactsService {
 
   //get all contacts from server
    getContacts (): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactUrl);
+    return this.http.get<Contact[]>('http://localhost:3000/contact');
   }  
 
 }
