@@ -12,5 +12,10 @@ export class ContactController {
       return this.contactService.findAll();
     } 
 
+    @Post('create')
+    async create(@Body() contactData: Contact): Promise<any> {
+      return this.contactService.create(contactData);
+    }  
+
 }
 

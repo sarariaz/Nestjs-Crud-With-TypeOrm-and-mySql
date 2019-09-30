@@ -3,8 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ContactController } from './contact/contact.controller';
+// import { ContactController } from './contact/contact.controller'; // we removed it bcs it already coming from ContactModule
 import { ContactModule } from './contact/contact.module';
+// import { ContactService } from './contact/contact.service';
 
 @Module({
    imports: [
@@ -13,14 +14,14 @@ import { ContactModule } from './contact/contact.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
-      database: 'test',
+      password: '', // removed password bcs no password was set 
+      database: 'nestjs',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     ContactModule,
   ],
-  controllers: [AppController, ContactController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
