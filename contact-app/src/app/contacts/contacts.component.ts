@@ -12,6 +12,7 @@ import { from } from 'rxjs';
 export class ContactsComponent implements OnInit {
 
   contacts : Contact[];
+ // contact : Contact;
 
   constructor(private contactsService: ContactsService) { }
 
@@ -23,8 +24,18 @@ export class ContactsComponent implements OnInit {
     this.contactsService.getContacts()
     .subscribe(contacts => {
       this.contacts = contacts;
-    console.log("hi"); });
+    console.log("hi"); 
+  });
     
+  }
+
+  addContact(){
+    console.log(this.contact)
+    this.contactsService.addContact(this.contact)
+    .subscribe(contact => {
+     this.contacts.push(this.contact);
+     this.getContacts();
+   });
   }
 
 }

@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 // import { ContactController } from './contact/contact.controller'; // we removed it bcs it already coming from ContactModule
 import { ContactModule } from './contact/contact.module';
 // import { ContactService } from './contact/contact.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
    imports: [
@@ -20,6 +21,7 @@ import { ContactModule } from './contact/contact.module';
       synchronize: true,
     }),
     ContactModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

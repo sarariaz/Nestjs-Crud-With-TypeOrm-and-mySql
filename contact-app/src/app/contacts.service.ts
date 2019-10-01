@@ -4,8 +4,6 @@ import { Observable, of, from } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Contact } from './contact';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -25,4 +23,9 @@ export class ContactsService {
     return this.http.get<Contact[]>('http://localhost:3000/contact');
   }  
 
+  //create new contact
+  addContact (contact: Contact): Observable<Contact> {
+    return this.http.post<Contact>('http://localhost:3000/contact/create', contact, this.httpOptions)
+    
+       }
 }
